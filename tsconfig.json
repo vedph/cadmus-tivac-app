@@ -3,6 +3,10 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
+      "@myrmidon/cadmus-part-tivac-grf-location": [
+        "dist/myrmidon/cadmus-part-tivac-grf-location/myrmidon-cadmus-part-tivac-grf-location",
+        "dist/myrmidon/cadmus-part-tivac-grf-location"
+      ],
       "@myrmidon/cadmus-part-tivac-pg": [
         "dist/myrmidon/cadmus-part-tivac-pg/myrmidon-cadmus-part-tivac-pg",
         "dist/myrmidon/cadmus-part-tivac-pg"

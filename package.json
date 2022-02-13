@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-loc": "ng build @myrmidon/cadmus-part-tivac-grf-location",
+    "build-all": "npm run build-loc"
   },
   "private": true,
   "dependencies": {
