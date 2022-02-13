@@ -15,10 +15,12 @@ import { CadmusStateModule } from '@myrmidon/cadmus-state';
 import { CadmusUiModule } from '@myrmidon/cadmus-ui';
 import { CadmusUiPgModule } from '@myrmidon/cadmus-ui-pg';
 import { GrfLocationPartComponent } from './grf-location-part/grf-location-part.component';
+import { GrfLocationPartFeatureComponent } from './grf-location-part-feature/grf-location-part-feature.component';
 
 @NgModule({
   declarations: [
-    GrfLocationPartComponent
+    GrfLocationPartComponent,
+    GrfLocationPartFeatureComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { GrfLocationPartComponent } from './grf-location-part/grf-location-part.
     CadmusUiPgModule,
   ],
   exports: [
-    GrfLocationPartComponent
+    GrfLocationPartComponent,
+    GrfLocationPartFeatureComponent
   ],
 })
 export class CadmusPartTivacGrfLocationModule {}

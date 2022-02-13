@@ -14,8 +14,11 @@ import {
 } from '@myrmidon/cadmus-part-philology-ui';
 import { PartEditorKeys } from '@myrmidon/cadmus-core';
 
+import { GRF_LOCATION_PART_TYPEID } from 'projects/myrmidon/cadmus-part-tivac-grf-location/src/public-api';
+
 const GENERAL = 'general';
 const PHILOLOGY = 'philology';
+const TIVAC = 'tivac';
 const TOKEN_TEXT_LAYER_PART_TYPEID = 'it.vedph.token-text-layer';
 
 /**
@@ -25,6 +28,7 @@ const TOKEN_TEXT_LAYER_PART_TYPEID = 'it.vedph.token-text-layer';
  * with the mappings between fragment type IDs and their editor keys.
  */
 export const PART_EDITOR_KEYS: PartEditorKeys = {
+  // general parts
   [HISTORICAL_DATE_PART_TYPEID]: {
     part: GENERAL,
   },
@@ -45,6 +49,10 @@ export const PART_EDITOR_KEYS: PartEditorKeys = {
   },
   [BIBLIOGRAPHY_PART_TYPEID]: {
     part: GENERAL,
+  },
+  // tivac parts
+  [GRF_LOCATION_PART_TYPEID]: {
+    part: TIVAC,
   },
   // layer parts
   [TOKEN_TEXT_LAYER_PART_TYPEID]: {
