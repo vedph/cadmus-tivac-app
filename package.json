@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build-loc": "ng build @myrmidon/cadmus-part-tivac-grf-location",
-    "build-all": "npm run build-loc"
+    "build-sup": "ng build @myrmidon/cadmus-part-tivac-grf-support",
+    "build-all": "npm run build-loc && npm run build-sup"
   },
   "private": true,
   "dependencies": {
