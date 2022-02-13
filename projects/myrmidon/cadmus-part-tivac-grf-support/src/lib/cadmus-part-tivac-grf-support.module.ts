@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -14,9 +15,14 @@ import { CadmusStateModule } from '@myrmidon/cadmus-state';
 import { CadmusUiModule } from '@myrmidon/cadmus-ui';
 import { CadmusUiPgModule } from '@myrmidon/cadmus-ui-pg';
 import { CadmusMatPhysicalSizeModule } from '@myrmidon/cadmus-mat-physical-size';
+import { GrfSupportPartComponent } from './grf-support-part/grf-support-part.component';
+import { GrfSupportPartFeatureComponent } from './grf-support-part-feature/grf-support-part-feature.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    GrfSupportPartComponent,
+    GrfSupportPartFeatureComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,6 +30,7 @@ import { CadmusMatPhysicalSizeModule } from '@myrmidon/cadmus-mat-physical-size'
     // material
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatIconModule,
     MatInputModule,
     MatSelectModule,
@@ -35,6 +42,9 @@ import { CadmusMatPhysicalSizeModule } from '@myrmidon/cadmus-mat-physical-size'
     CadmusUiPgModule,
     CadmusMatPhysicalSizeModule,
   ],
-  exports: [],
+  exports: [
+    GrfSupportPartComponent,
+    GrfSupportPartFeatureComponent
+  ],
 })
 export class CadmusPartTivacGrfSupportModule {}

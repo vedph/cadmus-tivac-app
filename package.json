@@ -9,7 +9,8 @@
     "test": "ng test",
     "build-loc": "ng build @myrmidon/cadmus-part-tivac-grf-location",
     "build-sup": "ng build @myrmidon/cadmus-part-tivac-grf-support",
-    "build-all": "npm run build-loc && npm run build-sup"
+    "build-pg": "ng build @myrmidon/cadmus-part-tivac-pg",
+    "build-all": "npm run build-loc && npm run build-sup && npm run build-pg"
   },
   "private": true,
   "dependencies": {

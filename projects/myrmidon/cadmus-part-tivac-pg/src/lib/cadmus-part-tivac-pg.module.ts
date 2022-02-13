@@ -12,6 +12,10 @@ import {
   GrfLocationPartFeatureComponent,
   GRF_LOCATION_PART_TYPEID,
 } from '@myrmidon/cadmus-part-tivac-grf-location';
+import {
+  GrfSupportPartFeatureComponent,
+  GRF_SUPPORT_PART_TYPEID,
+} from '@myrmidon/cadmus-part-tivac-grf-support';
 
 // https://github.com/ng-packagr/ng-packagr/issues/778
 export const RouterModuleForChild = RouterModule.forChild([
@@ -19,6 +23,12 @@ export const RouterModuleForChild = RouterModule.forChild([
     path: `${GRF_LOCATION_PART_TYPEID}/:pid`,
     pathMatch: 'full',
     component: GrfLocationPartFeatureComponent,
+    canDeactivate: [PendingChangesGuard],
+  },
+  {
+    path: `${GRF_SUPPORT_PART_TYPEID}/:pid`,
+    pathMatch: 'full',
+    component: GrfSupportPartFeatureComponent,
     canDeactivate: [PendingChangesGuard],
   },
 ]);

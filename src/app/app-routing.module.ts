@@ -96,6 +96,14 @@ const routes: Routes = [
       ),
     canActivate: [AuthJwtGuardService],
   },
+  {
+    path: 'items/:iid/tivac',
+    loadChildren: () =>
+      import('@myrmidon/cadmus-part-tivac-pg').then(
+        (module) => module.CadmusPartTivacPgModule
+      ),
+    canActivate: [AuthJwtGuardService],
+  },
   // fallback
   { path: '**', component: HomeComponent },
 ];

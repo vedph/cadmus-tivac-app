@@ -15,6 +15,7 @@ import {
 import { PartEditorKeys } from '@myrmidon/cadmus-core';
 
 import { GRF_LOCATION_PART_TYPEID } from 'projects/myrmidon/cadmus-part-tivac-grf-location/src/public-api';
+import { GRF_SUPPORT_PART_TYPEID } from 'projects/myrmidon/cadmus-part-tivac-grf-support/src/public-api';
 
 const GENERAL = 'general';
 const PHILOLOGY = 'philology';
@@ -52,6 +53,9 @@ export const PART_EDITOR_KEYS: PartEditorKeys = {
   },
   // tivac parts
   [GRF_LOCATION_PART_TYPEID]: {
+    part: TIVAC,
+  },
+  [GRF_SUPPORT_PART_TYPEID]: {
     part: TIVAC,
   },
   // layer parts

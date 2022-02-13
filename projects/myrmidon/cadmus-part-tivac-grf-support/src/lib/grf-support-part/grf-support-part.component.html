@@ -1,0 +1,257 @@
+<form [formGroup]="form!" (submit)="save()">
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon>picture_in_picture</mat-icon>
+      </div>
+      <mat-card-title>Graffiti Support Part</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="form-row">
+        <!-- originalFn (bound) -->
+        <mat-form-field *ngIf="fnEntries?.length">
+          <mat-select [formControl]="originalFn" placeholder="original fn.">
+            <mat-option *ngFor="let e of fnEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              $any(originalFn).errors?.required &&
+              (originalFn.dirty || originalFn.touched)
+            "
+            >original fn. required</mat-error
+          >
+        </mat-form-field>
+        <!-- originalFn (free) -->
+        <mat-form-field *ngIf="!fnEntries?.length">
+          <input
+            matInput
+            [formControl]="originalFn"
+            placeholder="original fn."
+          />
+          <mat-error
+            *ngIf="
+              $any(originalFn).errors?.required &&
+              (originalFn.dirty || originalFn.touched)
+            "
+            >original fn. required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(originalFn).errors?.maxLength &&
+              (originalFn.dirty || originalFn.touched)
+            "
+            >original fn. too long</mat-error
+          >
+        </mat-form-field>
+
+        <!-- currentFn (bound) -->
+        <mat-form-field *ngIf="fnEntries?.length">
+          <mat-select [formControl]="currentFn" placeholder="current fn.">
+            <mat-option *ngFor="let e of fnEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              $any(currentFn).errors?.required &&
+              (currentFn.dirty || currentFn.touched)
+            "
+            >current fn. required</mat-error
+          >
+        </mat-form-field>
+        <!-- currentFn (free) -->
+        <mat-form-field *ngIf="!fnEntries?.length">
+          <input matInput [formControl]="currentFn" placeholder="current fn." />
+          <mat-error
+            *ngIf="
+              $any(currentFn).errors?.required &&
+              (currentFn.dirty || currentFn.touched)
+            "
+            >current fn. required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(currentFn).errors?.maxLength &&
+              (currentFn.dirty || currentFn.touched)
+            "
+            >current fn. too long</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <!-- objectType (bound) -->
+        <mat-form-field *ngIf="supTypeEntries?.length">
+          <mat-select [formControl]="objectType" placeholder="object type">
+            <mat-option *ngFor="let e of supTypeEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              $any(objectType).errors?.required &&
+              (objectType.dirty || objectType.touched)
+            "
+            >object type required</mat-error
+          >
+        </mat-form-field>
+        <!-- objectType (free) -->
+        <mat-form-field *!ngIf="supTypeEntries?.length">
+          <input
+            matInput
+            [formControl]="objectType"
+            placeholder="object type"
+          />
+          <mat-error
+            *ngIf="
+              $any(objectType).errors?.required &&
+              (objectType.dirty || objectType.touched)
+            "
+            >object type required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(objectType).errors?.maxLength &&
+              (objectType.dirty || objectType.touched)
+            "
+            >object type too long</mat-error
+          >
+        </mat-form-field>
+
+        <!-- supportType (bound) -->
+        <mat-form-field *ngIf="supTypeEntries?.length">
+          <mat-select [formControl]="supportType" placeholder="support type">
+            <mat-option *ngFor="let e of supTypeEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              $any(supportType).errors?.required &&
+              (supportType.dirty || supportType.touched)
+            "
+            >support type required</mat-error
+          >
+        </mat-form-field>
+        <!-- supportType (free) -->
+        <mat-form-field *!ngIf="supTypeEntries?.length">
+          <input
+            matInput
+            [formControl]="supportType"
+            placeholder="support type"
+          />
+          <mat-error
+            *ngIf="
+              $any(supportType).errors?.required &&
+              (supportType.dirty || supportType.touched)
+            "
+            >support type required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(supportType).errors?.maxLength &&
+              (supportType.dirty || supportType.touched)
+            "
+            >support type too long</mat-error
+          >
+        </mat-form-field>
+
+        <!-- isIndoor -->
+        <mat-checkbox [formControl]="isIndoor"
+          >indoor</mat-checkbox
+        >
+      </div>
+
+      <div class="form-row">
+        <!-- material (bound) -->
+        <mat-form-field *ngIf="supMatEntries?.length">
+          <mat-select [formControl]="material" placeholder="material">
+            <mat-option *ngFor="let e of supMatEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              $any(material).errors?.required &&
+              (material.dirty || material.touched)
+            "
+            >material required</mat-error
+          >
+        </mat-form-field>
+        <!-- material (free) -->
+        <mat-form-field *!ngIf="supMatEntries?.length">
+          <input matInput [formControl]="material" placeholder="material" />
+          <mat-error
+            *ngIf="
+              $any(material).errors?.required &&
+              (material.dirty || material.touched)
+            "
+            >material required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(material).errors?.maxLength &&
+              (material.dirty || material.touched)
+            "
+            >material too long</mat-error
+          >
+        </mat-form-field>
+
+        <!-- lastViewed -->
+        <mat-form-field>
+          <input
+            matInput
+            [formControl]="lastViewed"
+            placeholder="last viewed"
+            type="date"
+          />
+          <mat-error
+            *ngIf="
+              $any(lastViewed).errors?.required &&
+              (lastViewed.dirty || lastViewed.touched)
+            "
+            >date required</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div>
+        <!-- size -->
+        <cadmus-mat-physical-size
+          [tagEntries]="szTagEntries"
+          [unitEntries]="szUnitEntries"
+          [dimTagEntries]="szDimTagEntries"
+          [size]="initialSize"
+          (sizeChange)="onSizeChange($event)"
+        ></cadmus-mat-physical-size>
+      </div>
+
+      <div>
+        <!-- state -->
+        <mat-form-field class="long-text">
+          <textarea
+            rows="2"
+            matInput
+            [formControl]="state"
+            placeholder="state"
+          ></textarea>
+          <mat-error
+            *ngIf="
+              $any(state).errors?.maxLength && (state.dirty || state.touched)
+            "
+            >state too long</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <cadmus-close-save-buttons
+        [form]="form"
+        [noSave]="userLevel < 2"
+        (closeRequest)="close()"
+      ></cadmus-close-save-buttons>
+    </mat-card-actions>
+  </mat-card>
+</form>
