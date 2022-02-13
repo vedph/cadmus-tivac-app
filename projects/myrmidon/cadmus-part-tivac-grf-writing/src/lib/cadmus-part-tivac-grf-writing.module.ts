@@ -12,10 +12,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { CadmusStateModule } from '@myrmidon/cadmus-state';
 import { CadmusUiModule } from '@myrmidon/cadmus-ui';
+import { CadmusUiFlagsPickerModule } from '@myrmidon/cadmus-ui-flags-picker';
 import { CadmusUiPgModule } from '@myrmidon/cadmus-ui-pg';
 
+import { GrfWritingPartComponent } from './grf-writing-part/grf-writing-part.component';
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    GrfWritingPartComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -32,7 +37,10 @@ import { CadmusUiPgModule } from '@myrmidon/cadmus-ui-pg';
     CadmusStateModule,
     CadmusUiModule,
     CadmusUiPgModule,
+    CadmusUiFlagsPickerModule
   ],
-  exports: [],
+  exports: [
+    GrfWritingPartComponent
+  ],
 })
 export class CadmusPartTivacGrfWritingModule {}

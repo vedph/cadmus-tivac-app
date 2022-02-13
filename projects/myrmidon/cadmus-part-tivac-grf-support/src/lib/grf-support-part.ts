@@ -109,7 +109,7 @@ export const GRF_SUPPORT_PART_SCHEMA = {
               type: 'string',
             },
             value: {
-              type: 'integer',
+              type: 'number',
             },
             unit: {
               type: 'string',
@@ -124,7 +124,7 @@ export const GRF_SUPPORT_PART_SCHEMA = {
               type: 'string',
             },
             value: {
-              type: 'integer',
+              type: 'number',
             },
             unit: {
               type: 'string',
@@ -139,7 +139,7 @@ export const GRF_SUPPORT_PART_SCHEMA = {
               type: 'string',
             },
             value: {
-              type: 'integer',
+              type: 'number',
             },
             unit: {
               type: 'string',

@@ -3,4 +3,5 @@
  */
 
 export * from './lib/grf-writing-part';
+export * from './lib/grf-writing-part/grf-writing-part.component';
 export * from './lib/cadmus-part-tivac-grf-writing.module';

@@ -44,7 +44,7 @@ export const GRF_WRITING_PART_SCHEMA = {
     'language',
     'isPoetic',
     'technique',
-    'rowCount'
+    'rowCount',
   ],
   properties: {
     timeCreated: {
@@ -77,7 +77,45 @@ export const GRF_WRITING_PART_SCHEMA = {
       type: ['string', 'null'],
       pattern: '^([a-z][-0-9a-z._]*)?$',
     },
-
-    // TODO: add properties and fill the "required" array as needed
+    system: {
+      type: 'string',
+    },
+    type: {
+      type: 'string',
+    },
+    language: {
+      type: 'string',
+    },
+    isPoetic: {
+      type: 'boolean',
+    },
+    technique: {
+      type: 'string',
+    },
+    tool: {
+      type: 'string',
+    },
+    figType: {
+      type: 'string',
+    },
+    contentFeatures: {
+      type: 'array',
+      items: {
+        anyOf: [
+          {
+            type: 'string',
+          },
+        ],
+      },
+    },
+    frameType: {
+      type: 'string',
+    },
+    casing: {
+      type: 'string',
+    },
+    rowCount: {
+      type: 'integer',
+    },
   },
 };
