@@ -103,6 +103,16 @@ export class GrfSupportPartComponent
   }
 
   private updateForm(model: GrfSupportPart): void {
+    const defSize: PhysicalSize = {
+      w: {
+        value: 0,
+        unit: this.getDefaultEntryId(this.szUnitEntries) || 'cm',
+      },
+      h: {
+        value: 0,
+        unit: this.getDefaultEntryId(this.szUnitEntries) || 'cm',
+      },
+    };
     if (!model) {
       this.form!.reset();
       this.originalFn.setValue(this.getDefaultEntryId(this.fnEntries));
@@ -110,17 +120,7 @@ export class GrfSupportPartComponent
       this.objectType.setValue(this.getDefaultEntryId(this.objTypeEntries));
       this.supportType.setValue(this.getDefaultEntryId(this.supTypeEntries));
       this.material.setValue(this.getDefaultEntryId(this.supMatEntries));
-
-      this.size.setValue({
-        w: {
-          value: 0,
-          unit: this.getDefaultEntryId(this.szUnitEntries),
-        },
-        h: {
-          value: 0,
-          unit: this.getDefaultEntryId(this.szUnitEntries),
-        },
-      } as PhysicalSize);
+      this.size.setValue(defSize);
       return;
     }
     this.originalFn.setValue(
@@ -139,7 +139,7 @@ export class GrfSupportPartComponent
     this.material.setValue(
       model.material || this.getDefaultEntryId(this.supMatEntries)
     );
-    this.initialSize = model.size;
+    this.initialSize = model.size || defSize;
     this.state.setValue(model.state);
     this.lastViewed.setValue(model.lastViewed || new Date());
     this.form!.markAsPristine();
