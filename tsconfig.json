@@ -2,6 +2,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@myrmidon/cadmus-part-tivac-pg": [
+        "dist/myrmidon/cadmus-part-tivac-pg/myrmidon-cadmus-part-tivac-pg",
+        "dist/myrmidon/cadmus-part-tivac-pg"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

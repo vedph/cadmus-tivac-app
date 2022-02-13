@@ -24,20 +24,33 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/env.js",
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-monaco-editor/assets/monaco",
+                "output": "/assets/monaco"
+              }
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "sourceMap": {
+              "scripts": true,
+              "styles": true,
+              "hidden": false,
+              "vendor": true
+            }
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -89,14 +102,43 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "@myrmidon/cadmus-part-tivac-pg": {
+      "projectType": "library",
+      "root": "projects/myrmidon/cadmus-part-tivac-pg",
+      "sourceRoot": "projects/myrmidon/cadmus-part-tivac-pg/src",
+      "prefix": "cadmus",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/myrmidon/cadmus-part-tivac-pg/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/myrmidon/cadmus-part-tivac-pg/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/myrmidon/cadmus-part-tivac-pg/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/myrmidon/cadmus-part-tivac-pg/src/test.ts",
+            "tsConfig": "projects/myrmidon/cadmus-part-tivac-pg/tsconfig.spec.json",
+            "karmaConfig": "projects/myrmidon/cadmus-part-tivac-pg/karma.conf.js"
           }
         }
       }
