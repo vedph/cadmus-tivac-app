@@ -102,6 +102,17 @@ export class GrfSupportPartComponent
     return entries?.length ? entries[0].id : undefined;
   }
 
+  // private dateToYmd(date: Date | undefined): string | undefined {
+  //   if (!date) {
+  //     return undefined;
+  //   }
+  //   return [
+  //     date.getFullYear(),
+  //     ('0' + (date.getMonth() + 1)).slice(-2),
+  //     ('0' + date.getDate()).slice(-2),
+  //   ].join('-');
+  // }
+
   private updateForm(model: GrfSupportPart): void {
     const defSize: PhysicalSize = {
       w: {
@@ -121,6 +132,8 @@ export class GrfSupportPartComponent
       this.supportType.setValue(this.getDefaultEntryId(this.supTypeEntries));
       this.material.setValue(this.getDefaultEntryId(this.supMatEntries));
       this.size.setValue(defSize);
+      this.lastViewed.setValue(new Date());
+      this.form!.markAsPristine();
       return;
     }
     this.originalFn.setValue(
@@ -228,7 +241,7 @@ export class GrfSupportPartComponent
     part.material = this.material.value?.trim();
     part.size = this.size.value;
     part.state = this.state.value?.trim();
-    part.lastViewed = this.lastViewed.value?.trim();
+    part.lastViewed = this.lastViewed.value || new Date()
     return part;
   }
 }
