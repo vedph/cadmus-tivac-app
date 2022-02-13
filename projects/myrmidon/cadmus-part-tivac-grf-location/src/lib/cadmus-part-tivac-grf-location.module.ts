@@ -14,9 +14,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { CadmusStateModule } from '@myrmidon/cadmus-state';
 import { CadmusUiModule } from '@myrmidon/cadmus-ui';
 import { CadmusUiPgModule } from '@myrmidon/cadmus-ui-pg';
+import { GrfLocationPartComponent } from './grf-location-part/grf-location-part.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    GrfLocationPartComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -34,6 +37,8 @@ import { CadmusUiPgModule } from '@myrmidon/cadmus-ui-pg';
     CadmusUiModule,
     CadmusUiPgModule,
   ],
-  exports: [],
+  exports: [
+    GrfLocationPartComponent
+  ],
 })
 export class CadmusPartTivacGrfLocationModule {}

@@ -1,0 +1,83 @@
+<form [formGroup]="form!" (submit)="save()">
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon>picture_in_picture</mat-icon>
+      </div>
+      <mat-card-title>Graffiti Location Part</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <!-- place -->
+        <mat-form-field style="flex: 0 0 auto">
+          <input matInput [formControl]="place" placeholder="place" />
+          <mat-error
+            *ngIf="
+              $any(place).errors?.required && (place.dirty || place.touched)
+            "
+            >place required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(place).errors?.maxLength && (place.dirty || place.touched)
+            "
+            >place too long</mat-error
+          >
+        </mat-form-field>
+
+        <!-- area -->
+        <mat-form-field style="flex: 0 0 auto">
+          <input matInput [formControl]="area" placeholder="area" />
+          <mat-error
+            *ngIf="$any(area).errors?.required && (area.dirty || area.touched)"
+            >area required</mat-error
+          >
+          <mat-error
+            *ngIf="$any(area).errors?.maxLength && (area.dirty || area.touched)"
+            >area too long</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex; gap: 8px; align-items: center">
+        <!-- district -->
+        <mat-form-field>
+          <input matInput [formControl]="district" placeholder="district" />
+          <mat-error
+            *ngIf="
+              $any(district).errors?.required &&
+              (district.dirty || district.touched)
+            "
+            >district required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(district).errors?.maxLength &&
+              (district.dirty || district.touched)
+            "
+            >district too long</mat-error
+          >
+        </mat-form-field>
+
+        <!-- location -->
+        <mat-form-field>
+          <input matInput [formControl]="location" placeholder="location" />
+          <mat-error
+            *ngIf="
+              $any(location).errors?.maxLength &&
+              (location.dirty || location.touched)
+            "
+            >location too long</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <cadmus-close-save-buttons
+        [form]="form"
+        [noSave]="userLevel < 2"
+        (closeRequest)="close()"
+      ></cadmus-close-save-buttons>
+    </mat-card-actions>
+  </mat-card>
+</form>
