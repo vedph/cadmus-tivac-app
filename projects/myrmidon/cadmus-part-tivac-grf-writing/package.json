@@ -1,7 +1,7 @@
 {
-  "name": "@myrmidon/cadmus-part-tivac-pg",
+  "name": "@myrmidon/cadmus-part-tivac-grf-writing",
   "version": "0.0.1",
-  "description": "Cadmus Tivac - pages.",
+  "description": "Cadmus Tivac - graffiti writing part.",
   "keywords": [
     "Cadmus"
   ],

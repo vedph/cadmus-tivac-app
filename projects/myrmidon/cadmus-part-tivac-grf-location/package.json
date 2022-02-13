@@ -5,10 +5,10 @@
   "keywords": [
     "Cadmus"
   ],
-  "homepage": "https://github.com/vedph/cadmus-codicology-shell",
+  "homepage": "https://github.com/vedph/cadmus-tivac-app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vedph/cadmus-codicology-shell"
+    "url": "https://github.com/vedph/cadmus-tivac-app"
   },
   "author": {
     "name": "Daniele Fusi"

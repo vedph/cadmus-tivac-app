@@ -11,6 +11,10 @@
         "dist/myrmidon/cadmus-part-tivac-grf-support/myrmidon-cadmus-part-tivac-grf-support",
         "dist/myrmidon/cadmus-part-tivac-grf-support"
       ],
+      "@myrmidon/cadmus-part-tivac-grf-writing": [
+        "dist/myrmidon/cadmus-part-tivac-grf-writing/myrmidon-cadmus-part-tivac-grf-writing",
+        "dist/myrmidon/cadmus-part-tivac-grf-writing"
+      ],
       "@myrmidon/cadmus-part-tivac-pg": [
         "dist/myrmidon/cadmus-part-tivac-pg/myrmidon-cadmus-part-tivac-pg",
         "dist/myrmidon/cadmus-part-tivac-pg"
