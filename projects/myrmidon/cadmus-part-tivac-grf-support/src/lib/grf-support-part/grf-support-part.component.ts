@@ -96,20 +96,52 @@ export class GrfSupportPartComponent
     this.initEditor();
   }
 
+  private getDefaultEntryId(
+    entries: ThesaurusEntry[] | undefined
+  ): string | undefined {
+    return entries?.length ? entries[0].id : undefined;
+  }
+
   private updateForm(model: GrfSupportPart): void {
     if (!model) {
       this.form!.reset();
+      this.originalFn.setValue(this.getDefaultEntryId(this.fnEntries));
+      this.currentFn.setValue(this.getDefaultEntryId(this.fnEntries));
+      this.objectType.setValue(this.getDefaultEntryId(this.objTypeEntries));
+      this.supportType.setValue(this.getDefaultEntryId(this.supTypeEntries));
+      this.material.setValue(this.getDefaultEntryId(this.supMatEntries));
+
+      this.size.setValue({
+        w: {
+          value: 0,
+          unit: this.getDefaultEntryId(this.szUnitEntries),
+        },
+        h: {
+          value: 0,
+          unit: this.getDefaultEntryId(this.szUnitEntries),
+        },
+      } as PhysicalSize);
       return;
     }
-    this.originalFn.setValue(model.originalFn);
-    this.currentFn.setValue(model.currentFn);
-    this.objectType.setValue(model.objectType);
-    this.supportType.setValue(model.supportType);
+    this.originalFn.setValue(
+      model.originalFn || this.getDefaultEntryId(this.fnEntries)
+    );
+    this.currentFn.setValue(
+      model.currentFn || this.getDefaultEntryId(this.fnEntries)
+    );
+    this.objectType.setValue(
+      model.objectType || this.getDefaultEntryId(this.objTypeEntries)
+    );
+    this.supportType.setValue(
+      model.supportType || this.getDefaultEntryId(this.supTypeEntries)
+    );
     this.isIndoor.setValue(model.isIndoor);
-    this.material.setValue(model.material);
+    this.material.setValue(
+      model.material || this.getDefaultEntryId(this.supMatEntries)
+    );
     this.initialSize = model.size;
     this.state.setValue(model.state);
-    this.lastViewed.setValue(model.lastViewed);
+    this.lastViewed.setValue(model.lastViewed || new Date());
     this.form!.markAsPristine();
   }
 

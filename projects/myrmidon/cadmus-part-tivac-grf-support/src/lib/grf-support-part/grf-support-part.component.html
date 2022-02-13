@@ -98,7 +98,7 @@
           >
         </mat-form-field>
         <!-- objectType (free) -->
-        <mat-form-field *!ngIf="supTypeEntries?.length">
+        <mat-form-field *ngIf="!supTypeEntries?.length">
           <input
             matInput
             [formControl]="objectType"
@@ -136,7 +136,7 @@
           >
         </mat-form-field>
         <!-- supportType (free) -->
-        <mat-form-field *!ngIf="supTypeEntries?.length">
+        <mat-form-field *ngIf="!supTypeEntries?.length">
           <input
             matInput
             [formControl]="supportType"
@@ -159,9 +159,7 @@
         </mat-form-field>
 
         <!-- isIndoor -->
-        <mat-checkbox [formControl]="isIndoor"
-          >indoor</mat-checkbox
-        >
+        <mat-checkbox [formControl]="isIndoor">indoor</mat-checkbox>
       </div>
 
       <div class="form-row">
@@ -181,7 +179,7 @@
           >
         </mat-form-field>
         <!-- material (free) -->
-        <mat-form-field *!ngIf="supMatEntries?.length">
+        <mat-form-field *ngIf="!supMatEntries?.length">
           <input matInput [formControl]="material" placeholder="material" />
           <mat-error
             *ngIf="
@@ -217,8 +215,9 @@
         </mat-form-field>
       </div>
 
-      <div>
-        <!-- size -->
+      <!-- size -->
+      <fieldset>
+        <legend>size</legend>
         <cadmus-mat-physical-size
           [tagEntries]="szTagEntries"
           [unitEntries]="szUnitEntries"
@@ -226,7 +225,7 @@
           [size]="initialSize"
           (sizeChange)="onSizeChange($event)"
         ></cadmus-mat-physical-size>
-      </div>
+      </fieldset>
 
       <div>
         <!-- state -->

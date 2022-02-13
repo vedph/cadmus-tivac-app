@@ -105,22 +105,49 @@ export class GrfWritingPartComponent
     this.initEditor();
   }
 
+  private getDefaultEntryId(
+    entries: ThesaurusEntry[] | undefined
+  ): string | undefined {
+    return entries?.length ? entries[0].id : undefined;
+  }
+
   private updateForm(model: GrfWritingPart): void {
     if (!model) {
       this.form!.reset();
+      this.system.setValue(this.getDefaultEntryId(this.sysEntries));
+      this.type.setValue(this.getDefaultEntryId(this.typeEntries));
+      this.language.setValue(this.getDefaultEntryId(this.lngEntries));
+      this.technique.setValue(this.getDefaultEntryId(this.techEntries));
+      this.tool.setValue(this.getDefaultEntryId(this.toolEntries));
+      this.figType.setValue(this.getDefaultEntryId(this.figTypeEntries));
+      this.frameType.setValue(this.getDefaultEntryId(this.frameEntries));
+      this.casing.setValue(this.getDefaultEntryId(this.casEntries));
+      this.rowCount.setValue(0);
       return;
     }
-    this.system.setValue(model.system);
-    this.type.setValue(model.type);
-    this.language.setValue(model.language);
+    this.system.setValue(
+      model.system || this.getDefaultEntryId(this.sysEntries)
+    );
+    this.type.setValue(model.type || this.getDefaultEntryId(this.typeEntries));
+    this.language.setValue(
+      model.language || this.getDefaultEntryId(this.lngEntries)
+    );
     this.isPoetic.setValue(model.isPoetic || false);
-    this.technique.setValue(model.technique);
-    this.tool.setValue(model.tool);
-    this.figType.setValue(model.figType);
+    this.technique.setValue(
+      model.technique || this.getDefaultEntryId(this.techEntries)
+    );
+    this.tool.setValue(model.tool || this.getDefaultEntryId(this.toolEntries));
+    this.figType.setValue(
+      model.figType || this.getDefaultEntryId(this.figTypeEntries)
+    );
     this.initialFeatures = model.contentFeatures || [];
-    this.frameType.setValue(model.frameType);
-    this.casing.setValue(model.casing);
-    this.rowCount.setValue(model.rowCount);
+    this.frameType.setValue(
+      model.frameType || this.getDefaultEntryId(this.frameEntries)
+    );
+    this.casing.setValue(
+      model.casing || this.getDefaultEntryId(this.casEntries)
+    );
+    this.rowCount.setValue(model.rowCount || 0);
     this.form!.markAsPristine();
   }
 

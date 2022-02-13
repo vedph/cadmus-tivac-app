@@ -7,9 +7,9 @@
       <mat-card-title>Graffiti Writing Part</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <div>
+      <div class="form-row">
         <!-- system (bound) -->
-        <mat-form-field *ngIf="sysEntries?.length" class="form-col">
+        <mat-form-field *ngIf="sysEntries?.length">
           <mat-select [formControl]="system" placeholder="system">
             <mat-option *ngFor="let e of sysEntries" [value]="e.id">{{
               e.value
@@ -23,7 +23,7 @@
           >
         </mat-form-field>
         <!-- system (free) -->
-        <mat-form-field *!ngIf="sysEntries?.length" class="form-col">
+        <mat-form-field *ngIf="!sysEntries?.length">
           <input matInput [formControl]="system" placeholder="system" />
           <mat-error
             *ngIf="
@@ -40,7 +40,7 @@
         </mat-form-field>
 
         <!-- type (bound) -->
-        <mat-form-field *ngIf="typeEntries?.length" class="form-col">
+        <mat-form-field *ngIf="typeEntries?.length">
           <mat-select [formControl]="type" placeholder="type">
             <mat-option *ngFor="let e of typeEntries" [value]="e.id">{{
               e.value
@@ -52,7 +52,7 @@
           >
         </mat-form-field>
         <!-- type (free) -->
-        <mat-form-field *!ngIf="typeEntries?.length" class="form-col">
+        <mat-form-field *ngIf="!typeEntries?.length">
           <input matInput [formControl]="type" placeholder="type" />
           <mat-error
             *ngIf="$any(type).errors?.required && (type.dirty || type.touched)"
@@ -64,9 +64,9 @@
           >
         </mat-form-field>
       </div>
-      <div>
+      <div class="form-row">
         <!-- language (bound) -->
-        <mat-form-field *ngIf="lngEntries?.length" class="form-col">
+        <mat-form-field *ngIf="lngEntries?.length">
           <mat-select [formControl]="language" placeholder="language">
             <mat-option *ngFor="let e of lngEntries" [value]="e.id">{{
               e.value
@@ -81,7 +81,7 @@
           >
         </mat-form-field>
         <!-- language (free) -->
-        <mat-form-field *!ngIf="lngEntries?.length" class="form-col">
+        <mat-form-field *ngIf="!lngEntries?.length">
           <input matInput [formControl]="language" placeholder="language" />
           <mat-error
             *ngIf="
@@ -103,7 +103,7 @@
         <mat-checkbox [formControl]="isPoetic">poetic</mat-checkbox>
 
         <!-- casing (bound) -->
-        <mat-form-field *ngIf="casEntries?.length" class="form-col">
+        <mat-form-field *ngIf="casEntries?.length">
           <mat-select [formControl]="casing" placeholder="casing">
             <mat-option *ngFor="let e of casEntries" [value]="e.id">{{
               e.value
@@ -111,7 +111,7 @@
           </mat-select>
         </mat-form-field>
         <!-- casing (free) -->
-        <mat-form-field *!ngIf="casEntries?.length" class="form-col">
+        <mat-form-field *ngIf="!casEntries?.length">
           <input matInput [formControl]="casing" placeholder="casing" />
           <mat-error
             *ngIf="
@@ -121,9 +121,9 @@
           >
         </mat-form-field>
       </div>
-      <div>
+      <div class="form-row">
         <!-- rowCount -->
-        <mat-form-field>
+        <mat-form-field style="width: 4em;">
           <input
             matInput
             [formControl]="rowCount"
@@ -134,7 +134,7 @@
         </mat-form-field>
 
         <!-- technique (bound) -->
-        <mat-form-field *ngIf="techEntries?.length" class="form-col">
+        <mat-form-field *ngIf="techEntries?.length">
           <mat-select [formControl]="technique" placeholder="technique">
             <mat-option *ngFor="let e of techEntries" [value]="e.id">{{
               e.value
@@ -149,7 +149,7 @@
           >
         </mat-form-field>
         <!-- technique (free) -->
-        <mat-form-field *!ngIf="techEntries?.length" class="form-col">
+        <mat-form-field *ngIf="!techEntries?.length">
           <input matInput [formControl]="technique" placeholder="technique" />
           <mat-error
             *ngIf="
@@ -167,7 +167,7 @@
           >
         </mat-form-field>
         <!-- tool (bound) -->
-        <mat-form-field *ngIf="toolEntries?.length" class="form-col">
+        <mat-form-field *ngIf="toolEntries?.length">
           <mat-select [formControl]="tool" placeholder="tool">
             <mat-option *ngFor="let e of toolEntries" [value]="e.id">{{
               e.value
@@ -175,7 +175,7 @@
           </mat-select>
         </mat-form-field>
         <!-- tool (free) -->
-        <mat-form-field *!ngIf="toolEntries?.length" class="form-col">
+        <mat-form-field *ngIf="!toolEntries?.length">
           <input matInput [formControl]="tool" placeholder="tool" />
           <mat-error
             *ngIf="$any(tool).errors?.maxLength && (tool.dirty || tool.touched)"
@@ -183,9 +183,9 @@
           >
         </mat-form-field>
       </div>
-      <div>
+      <div class="form-row">
         <!-- figType (bound) -->
-        <mat-form-field *ngIf="figTypeEntries?.length" class="form-col">
+        <mat-form-field *ngIf="figTypeEntries?.length">
           <mat-select [formControl]="figType" placeholder="fig.type">
             <mat-option *ngFor="let e of figTypeEntries" [value]="e.id">{{
               e.value
@@ -200,7 +200,7 @@
           >
         </mat-form-field>
         <!-- figType (free) -->
-        <mat-form-field *!ngIf="figTypeEntries?.length" class="form-col">
+        <mat-form-field *ngIf="!figTypeEntries?.length">
           <input matInput [formControl]="figType" placeholder="fig.type" />
           <mat-error
             *ngIf="
@@ -219,7 +219,7 @@
         </mat-form-field>
 
         <!-- frameType (bound) -->
-        <mat-form-field *ngIf="frameEntries?.length" class="form-col">
+        <mat-form-field *ngIf="frameEntries?.length">
           <mat-select [formControl]="frameType" placeholder="frame">
             <mat-option *ngFor="let e of frameEntries" [value]="e.id">{{
               e.value
@@ -227,7 +227,7 @@
           </mat-select>
         </mat-form-field>
         <!-- frameType (free) -->
-        <mat-form-field *!ngIf="frameEntries?.length" class="form-col">
+        <mat-form-field *ngIf="!frameEntries?.length">
           <input matInput [formControl]="frameType" placeholder="frameType" />
           <mat-error
             *ngIf="

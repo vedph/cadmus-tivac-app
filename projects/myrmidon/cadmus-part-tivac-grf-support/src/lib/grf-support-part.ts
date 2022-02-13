@@ -19,7 +19,7 @@ export interface GrfSupportPart extends Part {
 /**
  * The type ID used to identify the GrfSupportPart type.
  */
-export const GRF_SUPPORT_PART_TYPEID = 'it.vedph.vedph.grf-support';
+export const GRF_SUPPORT_PART_TYPEID = 'it.vedph.tivac.grf-support';
 
 /**
  * JSON schema for the GrfSupport part.
