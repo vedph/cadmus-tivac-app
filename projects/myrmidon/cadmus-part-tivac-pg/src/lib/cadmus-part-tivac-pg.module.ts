@@ -16,6 +16,10 @@ import {
   GrfSupportPartFeatureComponent,
   GRF_SUPPORT_PART_TYPEID,
 } from '@myrmidon/cadmus-part-tivac-grf-support';
+import {
+  GrfWritingPartFeatureComponent,
+  GRF_WRITING_PART_TYPEID,
+} from '@myrmidon/cadmus-part-tivac-grf-writing';
 
 // https://github.com/ng-packagr/ng-packagr/issues/778
 export const RouterModuleForChild = RouterModule.forChild([
@@ -29,6 +33,12 @@ export const RouterModuleForChild = RouterModule.forChild([
     path: `${GRF_SUPPORT_PART_TYPEID}/:pid`,
     pathMatch: 'full',
     component: GrfSupportPartFeatureComponent,
+    canDeactivate: [PendingChangesGuard],
+  },
+  {
+    path: `${GRF_WRITING_PART_TYPEID}/:pid`,
+    pathMatch: 'full',
+    component: GrfWritingPartFeatureComponent,
     canDeactivate: [PendingChangesGuard],
   },
 ]);

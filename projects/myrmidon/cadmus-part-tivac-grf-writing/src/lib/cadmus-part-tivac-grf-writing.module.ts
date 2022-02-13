@@ -17,10 +17,12 @@ import { CadmusUiFlagsPickerModule } from '@myrmidon/cadmus-ui-flags-picker';
 import { CadmusUiPgModule } from '@myrmidon/cadmus-ui-pg';
 
 import { GrfWritingPartComponent } from './grf-writing-part/grf-writing-part.component';
+import { GrfWritingPartFeatureComponent } from './grf-writing-part-feature/grf-writing-part-feature.component';
 
 @NgModule({
   declarations: [
-    GrfWritingPartComponent
+    GrfWritingPartComponent,
+    GrfWritingPartFeatureComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { GrfWritingPartComponent } from './grf-writing-part/grf-writing-part.com
     CadmusUiFlagsPickerModule
   ],
   exports: [
-    GrfWritingPartComponent
+    GrfWritingPartComponent,
+    GrfWritingPartFeatureComponent
   ],
 })
 export class CadmusPartTivacGrfWritingModule {}
