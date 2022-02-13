@@ -7,7 +7,246 @@
       <mat-card-title>Graffiti Writing Part</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+      <div>
+        <!-- system (bound) -->
+        <mat-form-field *ngIf="sysEntries?.length" class="form-col">
+          <mat-select [formControl]="system" placeholder="system">
+            <mat-option *ngFor="let e of sysEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              $any(system).errors?.required && (system.dirty || system.touched)
+            "
+            >system required</mat-error
+          >
+        </mat-form-field>
+        <!-- system (free) -->
+        <mat-form-field *!ngIf="sysEntries?.length" class="form-col">
+          <input matInput [formControl]="system" placeholder="system" />
+          <mat-error
+            *ngIf="
+              $any(system).errors?.required && (system.dirty || system.touched)
+            "
+            >system required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(system).errors?.maxLength && (system.dirty || system.touched)
+            "
+            >system too long</mat-error
+          >
+        </mat-form-field>
 
+        <!-- type (bound) -->
+        <mat-form-field *ngIf="typeEntries?.length" class="form-col">
+          <mat-select [formControl]="type" placeholder="type">
+            <mat-option *ngFor="let e of typeEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="$any(type).errors?.required && (type.dirty || type.touched)"
+            >type required</mat-error
+          >
+        </mat-form-field>
+        <!-- type (free) -->
+        <mat-form-field *!ngIf="typeEntries?.length" class="form-col">
+          <input matInput [formControl]="type" placeholder="type" />
+          <mat-error
+            *ngIf="$any(type).errors?.required && (type.dirty || type.touched)"
+            >type required</mat-error
+          >
+          <mat-error
+            *ngIf="$any(type).errors?.maxLength && (type.dirty || type.touched)"
+            >type too long</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div>
+        <!-- language (bound) -->
+        <mat-form-field *ngIf="lngEntries?.length" class="form-col">
+          <mat-select [formControl]="language" placeholder="language">
+            <mat-option *ngFor="let e of lngEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              $any(language).errors?.required &&
+              (language.dirty || language.touched)
+            "
+            >language required</mat-error
+          >
+        </mat-form-field>
+        <!-- language (free) -->
+        <mat-form-field *!ngIf="lngEntries?.length" class="form-col">
+          <input matInput [formControl]="language" placeholder="language" />
+          <mat-error
+            *ngIf="
+              $any(language).errors?.required &&
+              (language.dirty || language.touched)
+            "
+            >language required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(language).errors?.maxLength &&
+              (language.dirty || language.touched)
+            "
+            >language too long</mat-error
+          >
+        </mat-form-field>
+
+        <!-- isPoetic -->
+        <mat-checkbox [formControl]="isPoetic">poetic</mat-checkbox>
+
+        <!-- casing (bound) -->
+        <mat-form-field *ngIf="casEntries?.length" class="form-col">
+          <mat-select [formControl]="casing" placeholder="casing">
+            <mat-option *ngFor="let e of casEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- casing (free) -->
+        <mat-form-field *!ngIf="casEntries?.length" class="form-col">
+          <input matInput [formControl]="casing" placeholder="casing" />
+          <mat-error
+            *ngIf="
+              $any(casing).errors?.maxLength && (casing.dirty || casing.touched)
+            "
+            >casing too long</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div>
+        <!-- rowCount -->
+        <mat-form-field>
+          <input
+            matInput
+            [formControl]="rowCount"
+            placeholder="rows"
+            type="number"
+            min="0"
+          />
+        </mat-form-field>
+
+        <!-- technique (bound) -->
+        <mat-form-field *ngIf="techEntries?.length" class="form-col">
+          <mat-select [formControl]="technique" placeholder="technique">
+            <mat-option *ngFor="let e of techEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              $any(technique).errors?.required &&
+              (technique.dirty || technique.touched)
+            "
+            >technique required</mat-error
+          >
+        </mat-form-field>
+        <!-- technique (free) -->
+        <mat-form-field *!ngIf="techEntries?.length" class="form-col">
+          <input matInput [formControl]="technique" placeholder="technique" />
+          <mat-error
+            *ngIf="
+              $any(technique).errors?.required &&
+              (technique.dirty || technique.touched)
+            "
+            >technique required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(technique).errors?.maxLength &&
+              (technique.dirty || technique.touched)
+            "
+            >technique too long</mat-error
+          >
+        </mat-form-field>
+        <!-- tool (bound) -->
+        <mat-form-field *ngIf="toolEntries?.length" class="form-col">
+          <mat-select [formControl]="tool" placeholder="tool">
+            <mat-option *ngFor="let e of toolEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- tool (free) -->
+        <mat-form-field *!ngIf="toolEntries?.length" class="form-col">
+          <input matInput [formControl]="tool" placeholder="tool" />
+          <mat-error
+            *ngIf="$any(tool).errors?.maxLength && (tool.dirty || tool.touched)"
+            >tool too long</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div>
+        <!-- figType (bound) -->
+        <mat-form-field *ngIf="figTypeEntries?.length" class="form-col">
+          <mat-select [formControl]="figType" placeholder="fig.type">
+            <mat-option *ngFor="let e of figTypeEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+              $any(figType).errors?.required &&
+              (figType.dirty || figType.touched)
+            "
+            >fig.type required</mat-error
+          >
+        </mat-form-field>
+        <!-- figType (free) -->
+        <mat-form-field *!ngIf="figTypeEntries?.length" class="form-col">
+          <input matInput [formControl]="figType" placeholder="fig.type" />
+          <mat-error
+            *ngIf="
+              $any(figType).errors?.required &&
+              (figType.dirty || figType.touched)
+            "
+            >fig.type required</mat-error
+          >
+          <mat-error
+            *ngIf="
+              $any(figType).errors?.maxLength &&
+              (figType.dirty || figType.touched)
+            "
+            >fig.type too long</mat-error
+          >
+        </mat-form-field>
+
+        <!-- frameType (bound) -->
+        <mat-form-field *ngIf="frameEntries?.length" class="form-col">
+          <mat-select [formControl]="frameType" placeholder="frame">
+            <mat-option *ngFor="let e of frameEntries" [value]="e.id">{{
+              e.value
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- frameType (free) -->
+        <mat-form-field *!ngIf="frameEntries?.length" class="form-col">
+          <input matInput [formControl]="frameType" placeholder="frameType" />
+          <mat-error
+            *ngIf="
+              $any(frameType).errors?.maxLength &&
+              (frameType.dirty || frameType.touched)
+            "
+            >frame too long</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <!-- features -->
+      <fieldset>
+        <legend>features</legend>
+        <cadmus-ui-flags-picker
+          [flags]="featFlags"
+          [selectedIds]="initialFeatures"
+          (selectedIdsChange)="onSelectedIdsChange($event)"
+        ></cadmus-ui-flags-picker>
+      </fieldset>
     </mat-card-content>
     <mat-card-actions>
       <cadmus-close-save-buttons
